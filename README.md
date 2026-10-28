@@ -54,3 +54,8 @@ the path, `/usr/.../imageformats/libqsvg.so` isn't even loaded.
   once per icon and size.
 - If Plasma ever fails to start, switch to a text console (Ctrl+Alt+F3), log in, run `bash undo.sh`,
   and log back in.
+
+## License and privacy
+
+MIT, see [LICENSE](LICENSE). The plugin collects no data and makes no network connections; see
+[PRIVACY.md](PRIVACY.md).
