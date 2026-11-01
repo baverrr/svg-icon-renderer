@@ -1,5 +1,9 @@
 # svg-icon-renderer
 
+[![CI](https://github.com/baverrr/svg-icon-renderer/actions/workflows/ci.yml/badge.svg)](https://github.com/baverrr/svg-icon-renderer/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/baverrr/svg-icon-renderer/actions/workflows/codeql.yml/badge.svg)](https://github.com/baverrr/svg-icon-renderer/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 A Qt 6 image-format plugin (`librsvgqt.so`) that draws `svg`/`svgz` with librsvg instead of
 QtSvg. KDE's icon loader (KIconLoader/KIconEngine) reads SVG icons through `QImageReader`, so with
 this plugin your icons get full SVG 1.1 rendering: `feDropShadow`, `feTurbulence`,
@@ -106,6 +110,12 @@ folder:
 QT_PLUGIN_PATH="$PWD/build" dolphin
 ```
 
+GitHub Actions (`.github/workflows/ci.yml`) builds the plugin with Ubuntu 26.04's Qt 6 and librsvg
+and runs `compare.py`, `stress.py` and ShellCheck on every push and pull request; the built `.so`
+and the two comparison renders are kept as a run artifact. `.github/workflows/codeql.yml` runs
+CodeQL on the C++ (compiled through `build.sh`) and the workflows, also weekly. The Dolphin and
+session tests need a Plasma desktop, so they're run by hand.
+
 ## Test results (2026-10-28, Qt 6.10.2, librsvg 2.61.3)
 
 - `compare.py`: drop shadow and paper grain present with the plugin, absent with QtSvg, for both
@@ -149,6 +159,7 @@ test/dolphin-test.sh    screenshots a real Dolphin window before/after
 test/check-session.sh   shows which svg plugin the running Plasma apps loaded
 test/screenshots/       Dolphin screenshots from dolphin-test.sh
 docs/images/            README images
+.github/workflows/      ci.yml (build, compare.py, stress.py, ShellCheck), codeql.yml (code scanning)
 ```
 
 ## License and privacy
