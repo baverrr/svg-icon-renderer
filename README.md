@@ -110,11 +110,11 @@ folder:
 QT_PLUGIN_PATH="$PWD/build" dolphin
 ```
 
-GitHub Actions (`.github/workflows/ci.yml`) builds the plugin with Ubuntu 26.04's Qt 6 and librsvg and runs
-`compare.py`, `stress.py` and ShellCheck on every push and pull request; the built `.so` and the two
-comparison renders are kept as a run artifact. `.github/workflows/codeql.yml` runs CodeQL on the C++
-(compiled through `build.sh`) and the workflows, also weekly. The Dolphin and session tests need a
-Plasma desktop, so they're run by hand.
+GitHub Actions (`.github/workflows/ci.yml`) builds the plugin with Ubuntu 26.04's Qt 6 and librsvg
+and runs `compare.py`, `stress.py` and ShellCheck on every push and pull request; the built `.so`
+and the two comparison renders are kept as a run artifact. `.github/workflows/codeql.yml` runs
+CodeQL on the C++ (compiled through `build.sh`) and the workflows, also weekly. The Dolphin and
+session tests need a Plasma desktop, so they're run by hand.
 
 ## Test results (2026-10-28, Qt 6.10.2, librsvg 2.61.3)
 
