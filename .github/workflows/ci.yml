@@ -1,6 +1,6 @@
 name: CI
 
-# Builds the plugin with Ubuntu's Qt 6 and librsvg, then runs the tests that don't need a Plasma
+# Builds the plugin with Ubuntu 26.04's Qt 6 and librsvg (the versions it's made with), then runs the tests that don't need a Plasma
 # session: compare.py (the filter effects appear with the plugin and not with QtSvg) and stress.py
 # (every icon on the runner on 8 threads, broken input, speed). dolphin-test.sh and
 # check-session.sh need a desktop, so they stay manual.
@@ -17,24 +17,27 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    container: ubuntu:26.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
     steps:
-      - uses: actions/checkout@v7
-
       - name: Install build and test packages
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends qt6-base-dev qt6-base-dev-tools \
-            librsvg2-dev libcairo2-dev pkgconf python3-pyqt6 qt6-svg-plugins adwaita-icon-theme \
-            shellcheck
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates g++ qt6-base-dev \
+            qt6-base-dev-tools librsvg2-dev libcairo2-dev pkgconf python3 python3-pyqt6 \
+            qt6-svg-plugins adwaita-icon-theme shellcheck
+
+      - uses: actions/checkout@v7
 
       - name: Build
         run: bash build.sh
 
       - name: Filter effects (compare.py)
-        run: /usr/bin/python3 test/compare.py build test/filter-test.svg build/compare
+        run: python3 test/compare.py build test/filter-test.svg build/compare
 
       - name: Every icon, broken input, speed (stress.py)
-        run: /usr/bin/python3 test/stress.py build
+        run: python3 test/stress.py build
 
       - name: ShellCheck
         run: shellcheck --severity=warning build.sh install.sh undo.sh test/*.sh
