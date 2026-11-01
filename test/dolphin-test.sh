@@ -10,7 +10,7 @@ mode=${1:?usage: dolphin-test.sh before|after}
 work="$here/../build/dolphin-test"
 shots="$here/screenshots"
 
-rm -rf "$work/$mode"
+rm -rf "${work:?}/${mode:?}"
 mkdir -p "$work/$mode/config" "$work/$mode/cache" "$work/folders/Filter test" "$shots"
 printf '[Desktop Entry]\nIcon=%s\n' "$here/filter-test.svg" > "$work/folders/Filter test/.directory"
 # Keep the colour scheme and fonts; make the icons big enough to see the effects.
