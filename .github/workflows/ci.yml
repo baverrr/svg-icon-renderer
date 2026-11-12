@@ -3,7 +3,9 @@ name: CI
 # Builds the plugin with Ubuntu 26.04's Qt 6 and librsvg (the versions it's made with), then runs the tests that don't need a Plasma
 # session: compare.py (the filter effects appear with the plugin and not with QtSvg) and stress.py
 # (every icon on the runner on 8 threads, broken input, speed). dolphin-test.sh and
-# check-session.sh need a desktop, so they stay manual.
+# check-session.sh need a desktop, so they stay manual. For the Windows icon theme (windows/), it
+# renders a few Adwaita icons with render.py and runs test_render.py (the icon lookup rules on
+# made-up themes); the Windows-side scripts need Windows, so CI only checks that they compile.
 
 on:
   push:
@@ -26,7 +28,7 @@ jobs:
           apt-get update
           apt-get install -y --no-install-recommends ca-certificates g++ qt6-base-dev \
             qt6-base-dev-tools librsvg2-dev libcairo2-dev pkgconf python3 python3-pyqt6 \
-            qt6-svg-plugins adwaita-icon-theme shellcheck
+            qt6-svg-plugins adwaita-icon-theme shellcheck librsvg2-bin imagemagick
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -42,7 +44,29 @@ jobs:
         run: python3 test/stress.py build
 
       - name: ShellCheck
-        run: shellcheck --severity=warning build.sh install.sh undo.sh test/*.sh
+        run: shellcheck --severity=warning build.sh install.sh undo.sh test/*.sh windows/fetch.sh
+
+      - name: Windows icon theme scripts compile
+        run: python3 -m py_compile windows/*.py
+
+      - name: Windows icon theme render (render.py with Adwaita)
+        shell: bash  # -e and -o pipefail
+        run: |
+          python3 windows/render.py --theme Adwaita places/folder.svg mimetypes/text-x-generic.svg \
+            places/user-trash.svg:overlay > /tmp/icons.tgz 2> /tmp/render.log \
+            || { cat /tmp/render.log; exit 1; }
+          cat /tmp/render.log
+          [ "$(grep -c '^USES .*/Adwaita/' /tmp/render.log)" -eq 3 ] || { echo "expected 3 icons from Adwaita"; exit 1; }
+          mkdir /tmp/icons && tar -C /tmp/icons -xzf /tmp/icons.tgz
+          for f in places_folder.ico mimetypes_text-x-generic.ico places_user-trash__overlay.ico; do
+            [ "$(magick identify /tmp/icons/$f | wc -l)" -eq 10 ] || { echo "$f doesn't hold 10 sizes"; exit 1; }
+          done
+          # A name no theme has must fail with exit 3 and write nothing.
+          rc=0; python3 windows/render.py --theme Adwaita places/no-such-icon.svg > /tmp/miss.tgz 2> /dev/null || rc=$?
+          [ "$rc" -eq 3 ] && [ ! -s /tmp/miss.tgz ] || { echo "expected exit 3 and no output for a missing icon, got $rc"; exit 1; }
+
+      - name: Windows icon theme lookup rules (test_render.py)
+        run: python3 windows/test_render.py
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()

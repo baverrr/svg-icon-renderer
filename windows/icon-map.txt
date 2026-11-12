@@ -1,0 +1,399 @@
+# Windows imageres.dll icon ID -> KDE / freedesktop icon name.
+# Format: <id> <context>/<name>.svg [overlay]   # what Windows shows there
+# <context>: places, devices, mimetypes, apps, actions, preferences, categories, status or emblems.
+# render.py looks each name up in the KDE theme you render from (ICON_THEME, default Manila-Folders)
+# and the themes it inherits from, so the names work with most KDE themes; one a theme lacks is reported.
+# IDs that aren't listed keep the normal Windows icon.
+
+# Folders
+3    places/folder.svg                      # folder
+4    places/folder-open.svg                 # open folder
+18   places/folder.svg                      # folder (older dialogs)
+115  places/folder.svg                      # folder (library)
+123  places/folder-home.svg                 # user's home folder
+162  places/folder.svg                      # folder
+181  places/folder.svg                      # folder
+185  places/folder.svg                      # folder
+186  places/folder.svg                      # folder
+1020 places/folder.svg                      # folder
+1023 places/folder.svg                      # folder
+1025 places/folder-saved-search.svg         # search folder
+174  places/folder-tar.svg                  # zipped folder
+
+# User folders
+108  places/folder-music.svg                # Music
+112  places/folder-documents.svg            # Documents
+113  places/folder-pictures.svg             # Pictures
+183  places/folder-desktop.svg              # Desktop
+184  places/folder-downloads.svg            # Downloads
+189  places/folder-videos.svg               # Videos
+1040 places/folder-onedrive.svg             # OneDrive
+1024 places/favorites.svg                   # Favorites / Quick access star
+
+# This PC, drives, network
+109  devices/computer.svg                   # This PC
+25   places/network-workgroup.svg           # Network
+32   devices/drive-harddisk.svg             # hard drive
+35   devices/drive-harddisk.svg             # hard drive
+36   devices/drive-harddisk-system.svg      # Windows drive (C:)
+30   devices/drive-optical.svg              # CD drive
+37   devices/drive-optical.svg              # DVD drive
+58   devices/drive-removable-media-usb.svg  # removable drive
+33   places/folder-remote.svg               # network drive (connected)
+76   devices/printer.svg                    # printer
+
+# Recycle Bin
+54   places/user-trash-full.svg             # Recycle Bin, full
+55   places/user-trash.svg                  # Recycle Bin, empty
+
+# File types
+2    mimetypes/unknown.svg                  # unknown file type
+19   mimetypes/text-x-generic.svg           # text file
+90   mimetypes/x-office-document.svg        # document
+102  mimetypes/text-plain.svg               # plain document
+22   mimetypes/audio-x-generic.svg          # audio file
+131  mimetypes/audio-x-generic.svg          # audio file
+23   mimetypes/video-x-generic.svg          # video file
+133  mimetypes/video-x-generic.svg          # video file
+70   mimetypes/image-x-generic.svg          # image file
+71   mimetypes/image-x-generic.svg          # image file
+72   mimetypes/image-x-generic.svg          # image file
+83   mimetypes/image-x-generic.svg          # image file
+132  mimetypes/image-x-generic.svg          # image file
+15   mimetypes/application-x-executable.svg # program (.exe)
+67   mimetypes/application-x-sharedlib.svg  # system file (.dll, .sys)
+
+# ---- Everything else (added 2026-11-12) ----
+# A third column "overlay" draws the icon small in the bottom-left corner of an empty canvas, like the
+# Windows badge it replaces (shortcut arrow, share hand...), so it doesn't cover the icon underneath.
+# Left out on purpose, so they keep Windows' own image: 14 119 121 1013 1301 1302 1303 5365 5369
+# (see-through placeholders), 1015 1017 1018 (faint shadow layers) and 17 191 192 193 194 (the frames
+# Windows draws around picture and video thumbnails).
+
+# More folders
+5    places/folder.svg                      # folder (back layer)
+6    places/folder.svg                      # folder (front layer)
+8    places/folder-saved-search.svg         # search results
+9    places/folder-grey.svg                 # grey folder
+10   places/folder-library.svg              # library folder
+73   places/folder-remote.svg               # shared network folder
+74   places/folder-remote.svg               # shared network folder
+77   places/folder-text.svg                 # Fonts folder
+129  places/folder-text.svg                 # Fonts folder
+117  places/folder-recent.svg               # Recent
+143  places/folder-remote.svg               # network folder
+148  places/folder-library.svg              # library stack
+166  places/folder-drag-accept.svg          # folder with check
+175  places/folder-tar.svg                  # compressed folder
+178  places/folder-publicshare.svg          # shared folder (people)
+190  places/folder-cyan.svg                 # teal folder
+198  places/folder-design.svg               # 3D Objects
+1001 places/folder-documents.svg            # folder with document
+1002 places/folder-documents.svg            # Documents (nav pane)
+1003 places/folder-pictures.svg             # Pictures (nav pane)
+1004 places/folder-music.svg                # Music (nav pane)
+1005 places/folder-videos.svg               # Videos (nav pane)
+1014 places/folder-documents.svg            # folder with page
+1022 places/folder-recent.svg               # File History
+1043 places/folder-onedrive.svg             # OneDrive
+1306 places/folder-projects.svg             # briefcase
+5303 places/folder-move.svg                 # Move to folder
+5304 places/folder-copy.svg                 # Copy to folder
+5327 places/folder-tar.svg                  # extract zipped folder
+5353 places/folder-recent.svg               # folder history
+5355 places/folder-drag-accept.svg          # folder synced
+
+# Desktop, PC, network, places
+1008 places/user-desktop.svg                # Desktop (monitor)
+1021 places/user-desktop.svg                # Desktop (window)
+120  places/network-workgroup.svg           # Network and Internet
+152  devices/computer.svg                   # network computer
+80   places/network-server.svg             # server
+5377 places/network-server.svg             # media server
+5378 places/network-server.svg             # media server, off
+45   places/gnome-fs-web.svg                # web folder
+179  places/gnome-fs-web.svg                # Internet Options
+197  places/start-here-kde.svg              # Start / apps
+5325 apps/system-file-manager.svg           # File Explorer
+5305 places/emptytrash.svg                  # Empty Recycle Bin
+
+# Drives and storage
+28   devices/media-floppy.svg               # floppy drive
+29   devices/media-floppy.svg               # floppy drive
+42   devices/media-floppy.svg               # floppy drive
+48   devices/media-floppy.svg               # floppy drive, connected
+52   devices/media-floppy.svg               # floppy drive
+167  devices/media-floppy.svg               # floppy drive, error
+31   places/folder-remote.svg               # network drive, disconnected
+50   places/folder-remote.svg               # network drive, connected
+53   places/folder-remote.svg               # network drive
+5326 places/folder-remote.svg               # Map network drive
+5379 places/folder-remote.svg               # Disconnect network drive
+34   devices/memory.svg                     # memory chip
+43   devices/drive-removable-media.svg      # tape drive
+44   devices/drive-removable-media.svg      # removable disk drive
+91   devices/drive-removable-media.svg      # removable drive
+49   devices/drive-harddisk.svg             # drive, connected
+51   devices/drive-harddisk.svg             # drive
+75   devices/drive-harddisk.svg             # unknown drive
+5330 devices/drive-harddisk.svg             # rescan drive
+60   devices/media-flash-sd-mmc.svg         # SD card
+1030 devices/drive-harddisk-encrypted.svg   # BitLocker, unlocked
+1031 devices/drive-harddisk-encrypted.svg   # BitLocker, locked
+1032 devices/drive-harddisk-encrypted.svg   # BitLocker, warning
+1033 devices/drive-harddisk-encrypted.svg   # BitLocker Windows drive
+1034 devices/drive-harddisk-encrypted.svg   # BitLocker Windows drive, warning
+1035 devices/drive-harddisk-encrypted.svg   # BitLocker, unlocked
+1036 devices/drive-harddisk-encrypted.svg   # BitLocker, locked
+1037 devices/drive-harddisk-encrypted.svg   # BitLocker, warning
+5381 devices/drive-harddisk-encrypted.svg   # BitLocker drive
+
+# Discs
+38   devices/media-optical-recordable.svg   # DVD-R
+62   devices/media-optical-recordable.svg   # CD-R
+172  devices/media-optical-recordable.svg   # DVD+R
+39   devices/media-write-dvd.svg            # DVD-RAM
+41   devices/media-write-dvd.svg            # DVD-RW
+173  devices/media-write-dvd.svg            # DVD+RW
+64   devices/media-write-cd.svg             # CD-RW
+155  devices/media-write-cd.svg             # burn disc
+40   devices/media-optical-dvd.svg          # DVD-ROM
+56   devices/media-optical-dvd.svg          # DVD
+61   devices/media-optical.svg              # disc
+146  devices/media-optical.svg              # unknown disc
+5329 devices/media-optical.svg              # stop burning
+63   devices/media-optical-data.svg         # CD-ROM
+85   devices/media-optical-audio.svg        # audio CD
+137  devices/media-optical-audio.svg        # audio CD
+180  devices/media-optical-audio.svg        # audio disc
+135  devices/media-optical-video.svg        # DVD movie
+136  devices/media-optical-video.svg        # DVD movie
+138  devices/media-optical-video.svg        # DVD movie
+141  devices/media-optical-video.svg        # VCD
+142  devices/media-optical-video.svg        # SVCD
+139  devices/media-optical-blu-ray.svg      # HD DVD
+140  devices/media-optical-blu-ray.svg      # Blu-ray
+5331 devices/drive-optical.svg              # disc drive
+5205 mimetypes/application-x-cd-image.svg   # disc image (.iso)
+161  mimetypes/application-x-cd-image.svg   # disc program
+87   mimetypes/application-x-cd-image.svg   # AutoPlay
+
+# Devices
+26   devices/printer.svg                    # Printers folder
+5375 devices/printer.svg                    # network printer
+95   devices/scanner.svg                    # scanner
+196  devices/scanner.svg                    # Scanners and Cameras
+5363 devices/scanner.svg                    # scan
+46   devices/camera-video.svg               # camcorder
+57   devices/camera-photo.svg               # camera
+47   devices/smartphone.svg                 # phone
+6400 devices/smartphone.svg                 # Phone Link
+66   devices/multimedia-player.svg          # media player
+93   devices/phone.svg                      # PDA
+8203 devices/phone.svg                      # phone outline
+92   devices/video-display.svg              # display
+94   devices/video-display.svg              # projector
+100  devices/video-display.svg              # display adapter
+5371 devices/video-display.svg              # Play to device
+96   devices/input-tablet.svg               # tablet
+182  devices/input-keyboard.svg             # keyboard
+5374 devices/network-wired.svg              # network adapters
+
+# System and settings
+27   preferences/preferences-system.svg     # Control Panel
+68   preferences/preferences-system.svg     # settings window
+114  preferences/preferences-desktop-default-applications.svg  # Default Programs
+24   preferences/preferences-desktop-default-applications.svg  # program set as default
+149  preferences/preferences-desktop-display.svg # display settings
+145  preferences/preferences-desktop-display.svg # display (old)
+151  preferences/preferences-desktop-theme.svg   # Personalization
+110  preferences/preferences-desktop-wallpaper.svg # desktop background
+5346 preferences/preferences-desktop-wallpaper.svg # set as background
+101  preferences/preferences-desktop-screensaver.svg # screen saver
+168  preferences/preferences-desktop-screensaver.svg # screen saver (old)
+86   preferences/preferences-desktop-accessibility.svg # Accessibility
+144  preferences/preferences-system-time.svg # Date and Time
+5318 preferences/preferences-system-time.svg # remove scheduled task
+5319 preferences/preferences-system-time.svg # remove scheduled task
+5368 preferences/preferences-system-time.svg # undo schedule
+147  preferences/preferences-system-network.svg # Mobility / sync
+171  preferences/preferences-system-network.svg # Easy Transfer
+111  apps/system-software-install.svg       # Programs and Features
+150  apps/utilities-system-monitor.svg      # Performance Monitor
+177  apps/system-search.svg                 # search
+5332 apps/system-search.svg                 # search options
+5323 apps/utilities-terminal.svg            # Command Prompt
+5324 apps/utilities-terminal.svg            # Command Prompt (admin)
+5372 apps/utilities-terminal.svg            # PowerShell
+5373 apps/utilities-terminal.svg            # PowerShell (admin)
+5351 preferences/preferences-desktop-remote-desktop.svg # Remote Desktop
+88   apps/system-users.svg                  # user
+130  apps/system-users.svg                  # work account
+1029 apps/system-users.svg                  # user
+5203 apps/system-users.svg                  # user
+5356 apps/system-users.svg                  # users, approved
+5380 apps/system-users.svg                  # switch user
+
+# Security and status
+78   status/security-medium.svg             # UAC shield
+1028 status/security-medium.svg             # UAC shield
+104  status/security-medium.svg             # shield, unknown
+107  status/security-medium.svg             # shield, warning
+105  status/security-low.svg                # shield, error
+106  status/security-high.svg               # shield, OK
+195  status/security-high.svg               # Windows Security
+59   status/object-locked.svg               # lock
+1304 status/object-locked.svg               # lock
+5403 status/object-locked.svg               # rotation lock
+5405 status/object-locked.svg               # rotation lock (dark)
+82   status/dialog-password.svg             # key
+5360 status/dialog-password.svg             # password
+81   status/dialog-information.svg          # information
+84   status/dialog-warning.svg              # warning
+1403 status/dialog-warning.svg              # warning
+98   status/dialog-error.svg                # error
+1402 status/dialog-error.svg                # error
+1027 status/dialog-error.svg                # not allowed
+99   status/dialog-question.svg             # question
+5102 status/image-missing.svg               # broken picture
+1400 emblems/emblem-success.svg             # OK
+1405 emblems/emblem-success.svg             # OK
+1404 places/folder-cloud.svg                # cloud
+5406 status/airplane-mode.svg               # airplane mode
+5408 status/airplane-mode.svg               # airplane mode (dark)
+5407 status/network-cellular-signal-excellent.svg # signal
+5409 status/network-cellular-signal-excellent.svg # signal (dark)
+5411 status/display-brightness.svg          # brightness
+5412 status/display-brightness.svg          # brightness (dark)
+
+# Overlays (badges in the bottom-left corner)
+163  emblems/emblem-symbolic-link.svg overlay # shortcut arrow
+164  emblems/emblem-shared.svg overlay      # shared
+157  emblems/emblem-success.svg overlay     # check
+169  emblems/emblem-added.svg overlay   # download
+176  status/audio-volume-high.svg overlay   # sound
+1041 emblems/emblem-warning.svg overlay   # warning
+1042 emblems/vcs-update-required.svg overlay # syncing
+
+# Actions (toolbars, menus, ribbons)
+89   actions/edit-delete.svg                # delete
+170  actions/edit-delete.svg                # delete
+5320 actions/edit-delete.svg                # delete
+5337 actions/edit-delete.svg                # delete
+5383 actions/edit-delete.svg                # remove
+116  actions/system-run.svg                 # Run / open
+5302 actions/system-run.svg                 # Run
+165  actions/dialog-ok.svg                  # done
+5364 actions/dialog-ok.svg                  # done
+5367 actions/dialog-ok.svg                  # approved document
+1401 actions/view-refresh.svg               # refresh
+1305 actions/view-restore.svg               # shrink
+1010 actions/document-share.svg             # share
+5100 actions/window-pin.svg                 # pin
+5101 actions/window-pin.svg                 # unpin
+5354 actions/window-pin.svg                 # pin to taskbar
+5376 actions/window-pin.svg                 # pin to Start
+5201 actions/media-playback-start.svg       # play
+5341 actions/media-playback-start.svg       # play
+5343 actions/media-playback-start.svg       # play file
+5362 actions/media-playback-start.svg       # slideshow
+5328 actions/media-eject.svg                # eject
+5206 actions/view-grid.svg                  # tiles
+5210 actions/view-grid.svg                  # tiles
+5308 actions/view-grid.svg                  # large icons
+5309 actions/view-grid.svg                  # icons
+5310 actions/view-grid.svg                  # icons
+5342 actions/view-grid.svg                  # play all
+5312 actions/view-list-details.svg          # details
+5321 actions/view-list-details.svg          # list window
+5361 actions/view-list-details.svg          # picture details
+5313 actions/view-split-left-right.svg      # columns
+5359 actions/view-split-left-right.svg      # preview pane
+5322 actions/window-new.svg                 # new window
+5301 actions/edit-paste.svg                 # paste shortcut
+5357 actions/edit-copy.svg                  # copy / convert
+5382 actions/edit-copy.svg                  # copy
+5311 actions/edit-redo.svg                  # redo
+5315 actions/edit-undo.svg                  # undo
+5348 actions/edit-undo.svg                  # undo
+5349 actions/edit-undo.svg                  # undo
+5358 actions/edit-undo.svg                  # undo
+5314 actions/document-new.svg               # new
+5335 actions/document-new.svg               # new page
+5336 actions/document-new.svg               # page
+5306 actions/document-edit.svg              # edit
+5350 actions/document-edit.svg              # edit properties
+5307 actions/document-properties.svg        # properties
+5338 actions/document-send.svg              # upload
+5340 actions/document-send.svg              # send
+5339 actions/go-up.svg                      # up one level
+5344 actions/object-rotate-left.svg         # rotate left
+5345 actions/object-rotate-right.svg        # rotate right
+5402 actions/object-rotate-right.svg        # auto rotate
+5404 actions/object-rotate-right.svg        # auto rotate (dark)
+
+# File types
+20   mimetypes/message-rfc822.svg           # email
+21   mimetypes/image-x-generic.svg          # picture window
+122  mimetypes/image-x-generic.svg          # picture
+5352 mimetypes/image-x-generic.svg          # picture window
+8201 mimetypes/image-x-generic.svg          # Photos
+8205 mimetypes/image-x-generic.svg          # picture info
+5334 mimetypes/x-office-presentation.svg    # slideshow
+134  mimetypes/video-x-generic.svg          # media file
+8336 mimetypes/video-x-generic.svg          # video project
+1026 mimetypes/audio-x-generic.svg          # music file
+65   mimetypes/x-office-document.svg        # notebook
+5370 mimetypes/x-office-document.svg        # documents
+69   mimetypes/application-x-sharedlib.svg  # settings file
+97   mimetypes/package-x-generic.svg        # package
+79   mimetypes/x-office-contact.svg         # contact
+5333 mimetypes/x-office-calendar.svg        # calendar
+5316 mimetypes/text-html.svg                # web page
+5366 mimetypes/x-office-spreadsheet.svg     # table
+103  mimetypes/x-office-presentation.svg    # presentation
+5347 mimetypes/x-office-presentation.svg    # presentation
+124  mimetypes/font-x-generic.svg           # font
+125  mimetypes/font-x-generic.svg           # font (certified)
+126  mimetypes/font-x-generic.svg           # font (certified)
+127  mimetypes/font-x-generic.svg           # font (certified)
+128  mimetypes/font-x-generic.svg           # font
+158  mimetypes/font-x-generic.svg           # font
+159  mimetypes/font-x-generic.svg           # font
+160  mimetypes/font-x-generic.svg           # font
+
+# Microsoft Office file types
+8300 mimetypes/application-vnd.ms-access.svg # Access
+8301 mimetypes/x-office-spreadsheet.svg     # Excel data
+8320 mimetypes/x-office-spreadsheet.svg     # Excel
+8321 mimetypes/x-office-spreadsheet.svg     # Excel
+8343 mimetypes/x-office-spreadsheet.svg     # Excel, alert
+8310 mimetypes/x-office-spreadsheet.svg     # Power BI
+8302 mimetypes/x-office-document.svg        # Word
+8303 mimetypes/x-office-document.svg        # Word
+8340 mimetypes/x-office-document.svg        # Word, alert
+8304 mimetypes/x-office-document.svg        # Loop
+8307 mimetypes/x-office-document.svg        # OneNote
+8308 mimetypes/x-office-document.svg        # OneNote
+8313 mimetypes/x-office-document.svg        # Publisher
+8314 mimetypes/x-office-document.svg        # text layout
+8315 mimetypes/x-office-document.svg        # SharePoint
+8316 mimetypes/x-office-document.svg        # Sway
+8322 mimetypes/x-office-document.svg        # InfoPath
+8338 mimetypes/x-office-document.svg        # Forms
+8305 mimetypes/x-office-spreadsheet.svg     # Project
+8306 mimetypes/x-office-spreadsheet.svg     # Project
+8309 mimetypes/x-office-presentation.svg    # PowerPoint
+8311 mimetypes/x-office-presentation.svg    # PowerPoint
+8312 mimetypes/x-office-presentation.svg    # PowerPoint
+8341 mimetypes/x-office-presentation.svg    # PowerPoint, alert
+8317 mimetypes/x-office-drawing.svg         # Visio
+8318 mimetypes/x-office-drawing.svg         # Visio
+8319 mimetypes/x-office-drawing.svg         # Visio
+8342 mimetypes/x-office-drawing.svg         # Visio, alert
+8337 mimetypes/x-office-drawing.svg         # Designer
+8339 mimetypes/x-office-drawing.svg         # Whiteboard
+
+# To change an icon, edit its line: keep the ID, put another icon name from your KDE theme after it.
+# To find an ID, run unmapped_sheet.py or look at imageres-dump\_sheet.png after dump_icons.py.
+# Then run fetch.sh and build_theme.py again.

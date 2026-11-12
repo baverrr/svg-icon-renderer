@@ -1,0 +1,16 @@
+# Made by the scripts in this folder; each person builds their own.
+.venv/
+__pycache__/
+empty.dll
+imageres-dump/
+verify-dump/
+ico/
+ico.new/
+ico.tgz
+svgs.txt
+sources.txt
+sources.txt.new
+render.log
+compare.png
+live-check*.png
+unmapped/

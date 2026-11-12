@@ -1,0 +1,5 @@
+# Shell scripts and the icon map are read by bash; Windows line endings would break them after a
+# checkout on Windows. The .cmd file is for Windows' own command prompt.
+*.sh text eol=lf
+windows/icon-map.txt text eol=lf
+*.cmd text eol=crlf

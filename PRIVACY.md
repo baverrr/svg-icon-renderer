@@ -1,9 +1,9 @@
 # Privacy policy
 
-Last updated: 2026-10-28
+Last updated: 2026-11-12
 
-svg-icon-renderer runs only on your computer. It collects no personal data and sends nothing
-anywhere.
+svg-icon-renderer runs only on your computers. It collects no personal data and sends nothing
+anywhere except, for the Windows icon theme, to the Linux machine you name.
 
 ## The plugin
 
@@ -29,10 +29,29 @@ anywhere.
   plasmashell, Dolphin and System Settings processes, and prints the result to your terminal.
 - The other tests read SVG files and write images under `build/`, inside this folder.
 
+## The Windows icon theme (windows/)
+
+- `fetch.sh` connects only to the ssh host you set in `RENDER_HOST`, with your own ssh setup. It
+  sends `render.py`, the theme name and a list of icon names, and gets back the rendered icons and
+  a log of which SVG files were used. It keeps those in `windows/` (`ico/` with an `.ico` and a
+  preview image per icon, `sources.txt`, `render.log`, `svgs.txt`, and `ico.tgz` and `ico.new/`
+  while it runs).
+- `render.py` runs on that Linux machine. It reads icon themes in `~/.local/share/icons`, `~/.icons`,
+  `/usr/local/share/icons` and `/usr/share/icons`, works in a temporary folder that it deletes, and
+  writes only to its output.
+- `dump_icons.py`, `check_live.py` and `unmapped_sheet.py` read Windows' own icons (and
+  `icon-map.txt`) and write images where you tell them to; the README uses `windows/`.
+- `build_theme.py` writes only the theme folder you give it (the theme DLL and `theme.ini`, and it
+  deletes older theme DLLs there) and files in `windows/`.
+- `refresh-icons.cmd` restarts Explorer, asks Windows to refresh its icons (`ie4uinit.exe -show`)
+  and deletes Windows' icon cache files, which Windows rebuilds.
+- None of them make other network connections or collect anything.
+
 ## Third parties
 
 The plugin uses librsvg, cairo and Qt from your Linux distribution. None of them make network
-connections when drawing images. GitHub hosts this repository; its own privacy statement covers
+connections when drawing images. The Windows icon theme is loaded by Windhawk and its Resource
+Redirect mod, which you install yourself; their own privacy terms apply. GitHub hosts this repository; its own privacy statement covers
 what GitHub collects when you visit or clone it.
 
 ## Contact

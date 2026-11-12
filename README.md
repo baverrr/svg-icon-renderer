@@ -25,6 +25,7 @@ A plugin that makes KDE Plasma draw SVG icons with librsvg instead of Qt's own S
 - **Stays in your home folder.** No `sudo` and no system files changed. One script undoes it.
 - **Reads files safely.** Each read gets its own librsvg handle, broken or hostile files are rejected, and it never loads other files (only `data:` URIs).
 - **Is tested.** Tests cover the drawn output, every installed icon, broken input, speed and the live session.
+- **Brings the same icons to Windows.** The [windows](windows/README.md) folder builds a Windows 11 icon theme from your KDE icon theme, used through Windhawk's Resource Redirect mod.
 
 <table>
   <tr>
@@ -32,6 +33,12 @@ A plugin that makes KDE Plasma draw SVG icons with librsvg instead of Qt's own S
   </tr>
   <tr>
     <td align="center">The test icon at 256 px. QtSvg keeps only the blur glow. The plugin also draws the sheen, the paper grain and the shadow.</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/windows-before-after.png" alt="Windows 11's own icons above the same icons built from a KDE theme"></td>
+  </tr>
+  <tr>
+    <td align="center">Windows 11's icons, then the same icons from a KDE theme with the Windows icon theme.</td>
   </tr>
 </table>
 
@@ -106,6 +113,7 @@ A plugin that makes KDE Plasma draw SVG icons with librsvg instead of Qt's own S
 
 - Last results (2026-10-28, Qt 6.10.2, librsvg 2.61.3): all effects present with the plugin; 43,333 of 43,333 system icons drawn on 8 threads in 2.8 s; 1.04 s per 3,000 icons on one thread against 0.73 s for QtSvg; memory flat at about 46 MB over 6,000 renders.
 - CI builds on Ubuntu 26.04 and runs `compare.py`, `stress.py` and ShellCheck. The Dolphin and session tests need a Plasma desktop, so they're run by hand.
+- The Windows icon theme has its own guide: [windows/README.md](windows/README.md). CI renders a few Adwaita icons with its `render.py`; the Windows-side checks (`build_theme.py`, `check_live.py`) run on Windows by hand.
 </details>
 
 ## License
